@@ -51,9 +51,8 @@ app.once('ready', () => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hidden-inset',
-    width: 800,
-    height: 800,
-    backgroundColor: '#000'
+    width: 400,
+    height: 300,
   })
 
   window.loadURL(url.format({
@@ -62,6 +61,5 @@ app.once('ready', () => {
     slashes: true
   }))
 
-  window.webContents.openDevTools()
   window.setTouchBar(touchBar)
 });

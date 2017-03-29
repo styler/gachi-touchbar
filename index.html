@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
   </head>
-  <body>
-    <h1>Hello World!</h1>
+  <body class="xd">
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Look at your touchbar</h1>
+    <img src="https://cdn.betterttv.net/emote/57719a9a6bdecd592c3ad59b/3x" alt="">
   </body>
 
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
   </script>
+  <style>
+    h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+    }
+    .xd {
+      text-align: center;
+      padding: 30px;  
+    }
+  </style>
 
   <script type="text/javascript">
     window.playGachi = function(gachi) {
