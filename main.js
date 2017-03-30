@@ -10,15 +10,15 @@ const {TouchBarLabel, TouchBarButton, TouchBarSpacer, TouchBarGroup} = TouchBar
 const menuItems = [];
 const audio = {};
 const icons = {
-  babyface: nativeImage.createFromPath('./assets/babyface.png'),
-  billy: nativeImage.createFromPath('./assets/BillyH.png'),
+  // babyface: nativeImage.createFromPath('./assets/babyface.png'),
+  billyH: nativeImage.createFromPath('./assets/BillyH.png'),
   brother: nativeImage.createFromPath('./assets/Brother.png'),
   Kazuya: nativeImage.createFromPath('./assets/Kazuya.png'),
   markw: nativeImage.createFromPath('./assets/MarkW.png'),
   ripped: nativeImage.createFromPath('./assets/Ripped.png'),
   slave: nativeImage.createFromPath('./assets/Slave.png'),
   unripped: nativeImage.createFromPath('./assets/Unripped.png'),
-  van: nativeImage.createFromPath('./assets/VanD.png')
+  vanD: nativeImage.createFromPath('./assets/VanD.png')
 };
 
 _.each(icons, (image, name) => {
