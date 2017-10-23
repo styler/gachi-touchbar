@@ -1,12 +1,11 @@
 {
-  "name": "electron-quick-start",
+  "name": "gachi-touchbar",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/styler/gachi-touchbar",
   "keywords": [
     "Electron",
     "quick",
@@ -14,8 +13,7 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Styler",
   "devDependencies": {
     "electron": "~1.6.4"
   },
