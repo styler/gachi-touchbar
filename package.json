@@ -15,7 +15,7 @@
   ],
   "author": "Styler",
   "devDependencies": {
-    "electron": "~1.6.4"
+    "electron": "^1.7.9"
   },
   "dependencies": {
     "lodash": "^4.17.4"

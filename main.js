@@ -7,10 +7,12 @@ const _ = require('lodash');
 
 const {TouchBarLabel, TouchBarButton, TouchBarSpacer, TouchBarGroup} = TouchBar
 
+const thumbnailSize = 30;
+
 const menuItems = [];
 const audio = {};
 const icons = {
-  // babyface: nativeImage.createFromPath('./assets/babyface.png'),
+  yoav: nativeImage.createFromPath('./assets/yoav.png'),
   billyH: nativeImage.createFromPath('./assets/BillyH.png'),
   brother: nativeImage.createFromPath('./assets/Brother.png'),
   Kazuya: nativeImage.createFromPath('./assets/Kazuya.png'),
@@ -27,10 +29,11 @@ _.each(icons, (image, name) => {
   });
   const button = new TouchBarButton({
     label: name,
-    backgroundColor: randomColor(),
+    backgroundColor: '#263238',
+    iconPosition: 'overlay',
     icon: image.resize({
-      width: 40,
-      height: 40
+      width: thumbnailSize,
+      height: thumbnailSize
     }),
     click: () => {
       const gachi = _.sample(audio[button.label]);
@@ -50,7 +53,7 @@ const touchBar = new TouchBar(menuItems)
 app.once('ready', () => {
   window = new BrowserWindow({
     frame: false,
-    titleBarStyle: 'hidden-inset',
+    titleBarStyle: 'hiddenInset',
     width: 400,
     height: 300,
   })
