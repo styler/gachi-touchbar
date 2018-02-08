@@ -12,6 +12,7 @@ const thumbnailSize = 30;
 const menuItems = [];
 const audio = {};
 const icons = {
+  styleer: nativeImage.createFromPath('./assets/styleer.png'),
   yoav: nativeImage.createFromPath('./assets/yoav.png'),
   billyH: nativeImage.createFromPath('./assets/BillyH.png'),
   brother: nativeImage.createFromPath('./assets/Brother.png'),
