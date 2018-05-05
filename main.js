@@ -1,3 +1,9 @@
+// toggles
+const showLabel = false
+const chooseRandomly = true;
+const randomBackgroundColor = false;
+
+
 const {app, BrowserWindow, TouchBar, nativeImage, ipcMain} = require('electron')
 
 const fs = require('fs');
@@ -8,6 +14,8 @@ const _ = require('lodash');
 const {TouchBarLabel, TouchBarButton, TouchBarSpacer, TouchBarGroup} = TouchBar
 
 const thumbnailSize = 30;
+const menuItemLimit = 8;
+const defaultBackgroundColor = '#263238';
 
 const menuItems = [];
 const audio = {};
@@ -24,21 +32,42 @@ const icons = {
   vanD: nativeImage.createFromPath('./assets/VanD.png')
 };
 
-_.each(icons, (image, name) => {
+boys = Object.assign({}, icons);
+if (chooseRandomly) {
+  while (Object.keys(boys).length > menuItemLimit) {
+    objKeys = Object.keys(boys);
+    rnd = parseInt(Math.random() * objKeys.length,10);
+    delete boys[objKeys[rnd]];
+  }
+}
+
+_.each(boys, (image, name) => {
   fs.readdir(path.join(__dirname, 'assets', name), (err, sounds) => {
     audio[name] = sounds;
   });
+
+  if (showLabel) {
+    labelText = name;
+  } else {
+    labelText = '';
+  }
+  if (randomBackgroundColor) {
+    bgc = randomColor();
+  } else {
+    bgc = defaultBackgroundColor;
+  }
+
   const button = new TouchBarButton({
-    label: name,
-    backgroundColor: '#263238',
+    label: labelText,
+    backgroundColor: bgc,
     iconPosition: 'overlay',
     icon: image.resize({
-      width: thumbnailSize,
+      width: thumbnailSize / image.height * image.width,
       height: thumbnailSize
     }),
     click: () => {
-      const gachi = _.sample(audio[button.label]);
-      window.webContents.send('gachi', path.join(__dirname, 'assets', button.label, gachi));
+      const gachi = _.sample(audio[name]);
+      window.webContents.send('gachi', path.join(__dirname, 'assets', name, gachi));
     }
   });
 
